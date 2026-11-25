@@ -1,0 +1,10 @@
+# Credenciales locales (no subir)
+includes/conexion.php
+docs/Tabla bd.xlsx
+
+# Editor y sistema
+.vscode/
+Thumbs.db
+
+# Temporales
+*.log

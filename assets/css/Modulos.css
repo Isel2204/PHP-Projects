@@ -1,0 +1,107 @@
+:root {
+    --verde-tinta: #123B35;
+    --verde-accion: #16866B;
+    --verde-suave: #DDF3E9;
+    --fondo: #F5F7F6;
+    --ambar-alerta: #E9A23B;
+    --texto-secundario: #4F6560;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fondo);
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--verde-tinta);
+}
+
+/* Cabecera con el logo */
+.barra-superior {
+    padding: 14px 28px;
+}
+
+.logo-esquina {
+    display: block;
+    height: 50px;
+    width: auto;
+}
+
+/* Cuadrícula de módulos: 3 columnas */
+.modulos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 300px));
+    gap: clamp(24px, 4vw, 60px);
+    justify-content: center;
+    align-content: center;
+    padding: 20px 28px 50px;
+}
+
+/* Cada tarjeta */
+.modulo {
+    aspect-ratio: 9 / 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background-color: var(--verde-tinta);
+    color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(18, 59, 53, 0.15);
+    text-decoration: none;
+    text-align: center;
+    font-size: clamp(20px, 2.2vw, 34px);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.modulo:hover {
+    background-color: var(--verde-accion);
+    transform: translateY(-4px);
+}
+
+.modulo:focus-visible {
+    outline: 3px solid var(--ambar-alerta);
+    outline-offset: 4px;
+}
+
+/* Ícono */
+.icono {
+    width: clamp(64px, 7vw, 110px);
+    height: clamp(64px, 7vw, 110px);
+    object-fit: contain;
+}
+
+/* Mensaje cuando el usuario no tiene módulos */
+.sin-modulos {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 20px;
+    color: var(--texto-secundario);
+}
+
+/* Pantallas medianas: 2 columnas */
+@media (max-width: 900px) {
+    .modulos {
+        grid-template-columns: repeat(2, minmax(0, 260px));
+    }
+}
+
+/* Celulares: 1 columna */
+@media (max-width: 520px) {
+    .modulos {
+        grid-template-columns: minmax(0, 320px);
+    }
+
+    .modulo {
+        aspect-ratio: auto;
+        min-height: 170px;
+    }
+}
